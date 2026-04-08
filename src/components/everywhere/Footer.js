@@ -59,10 +59,11 @@ const Footer = () => {
                 </div>
                 <div className='col-md-3 mb-3'>
                     <h3>Contact Us</h3>
-                    <p>069-182-9936</p>
+                    <p>+21269-182-9936</p>
+                    <p>+211 926 487 825</p>
                     <p>Kwanelou@gmail.com</p>
-                    <p>Nargis Fes63456</p>
-                    <p>City-Fes</p>
+                    <p>Nargis Fes-63456</p>
+                    <p>City-Fes-Maroc</p>
                     
                 </div>
                  <hr/>
