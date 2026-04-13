@@ -1,4 +1,5 @@
 import React from 'react'
+import ligo from "../../assets/nyarial_logo.png" 
 
 const Footer = () => {
   return (
@@ -6,6 +7,7 @@ const Footer = () => {
         <div className='container '>
             <div className='row py-3'>
                 <div className='col-md-3 mb-3'>
+                    <img src={ligo} alt='' width="80px"/>
                     <h3>Nyarial shop</h3>
                     <p>Customer satisfaction is our <br/>Carefully selected designs <br/>Easy shopping experience 
                     <br/>Reliable service <br/>kindly trust our online services</p>

@@ -328,5 +328,29 @@
     }
     
  }
+ .login-form{
+    .card{
+        width: 600px;
+    }
+ }
+ .dashboard{
+    .card{
+        min-height: 450px;
+    }
+ }
+ .sidebar{
+    ul{
+        li{
+            list-style: none;
+            a{
+                display: block;
+                padding: 10px 0px;
+                border-bottom: 1px solid rgba(0,0,0,0.20);
+                text-decoration: none;
+                font-size: 20px;
+            }
+        }
+    }
+ }
  
 
