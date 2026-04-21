@@ -17,6 +17,20 @@ import Dashboard from "./components/backened/Dashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RequiredAuth from "./components/everywhere/RequiredAuth";
+import {default as Showservices} from "./components/backened/services/Show";
+import {default as Createservices} from "./components/backened/services/Create";
+import {default as Editservices} from "./components/backened/services/Edit";
+import {default as MenPage} from "./components/backened/menPage/Show";
+import {default as CreateMenPage} from "./components/backened/menPage/Create";
+import {default as EditMenPage} from "./components/backened/menPage/Edit";
+import {default as Womenpage} from "./components/backened/womenpage/Show";
+import {default as CreateWomen} from "./components/backened/womenpage/Create";
+import {default as EditWomen} from "./components/backened/womenpage/Edit";
+import {default as Showkids} from "./components/backened/kidsPage/Show";
+import {default as Createkids} from "./components/backened/kidsPage/Create";
+import {default as Editkids} from "./components/backened/kidsPage/Edit";
+import Register from "./components/backened/Register";
+
 
 function App() {
   return (
@@ -32,10 +46,94 @@ function App() {
         <Route path="/services" element={<Layout><Services /></Layout>} />
         <Route path="/contact" element={<Layout><Contact /></Layout>} />
         <Route path="/login" element={<Layout><Login /></Layout>} />
+        <Route path="/register" element={<Layout><Register /></Layout>} />
         <Route path="/dashboard" element={
           //protected route
           <RequiredAuth>
             <Layout><Dashboard /></Layout>
+            
+          </RequiredAuth>
+          }/>
+        <Route path="/showService" element={
+          //protected route
+          <RequiredAuth>
+            <Layout><Showservices /></Layout>
+            
+          </RequiredAuth>
+          }/>
+        <Route path="/createService" element={
+          //protected route
+          <RequiredAuth>
+            <Layout><Createservices /></Layout>
+            
+          </RequiredAuth>
+          }/>
+        <Route path="/editService/:id" element={
+          //protected route
+          <RequiredAuth>
+            <Layout><Editservices /></Layout>
+            
+          </RequiredAuth>
+          }/>
+        <Route path="/menPage" element={
+          //protected route
+          <RequiredAuth>
+            <Layout><MenPage /></Layout>
+            
+          </RequiredAuth>
+          }/>
+        <Route path="/CreatemenPage" element={
+          //protected route
+          <RequiredAuth>
+            <Layout><CreateMenPage /></Layout>
+            
+          </RequiredAuth>
+          }/>
+        <Route path="/editMen/:id" element={
+          //protected route
+          <RequiredAuth>
+            <Layout><EditMenPage /></Layout>
+            
+          </RequiredAuth>
+          }/>
+          <Route path="/womenpage" element={
+          //protected route
+          <RequiredAuth>
+            <Layout><Womenpage /></Layout>
+            
+          </RequiredAuth>
+          }/><Route path="/createWomen" element={
+          //protected route
+          <RequiredAuth>
+            <Layout><CreateWomen /></Layout>
+            
+          </RequiredAuth>
+          }/>
+          <Route path="/editWomen/:id" element={
+          //protected route
+          <RequiredAuth>
+            <Layout><EditWomen /></Layout>
+            
+          </RequiredAuth>
+          }/>
+          <Route path="/showKids" element={
+          //protected route
+          <RequiredAuth>
+            <Layout><Showkids /></Layout>
+            
+          </RequiredAuth>
+          }/>
+          <Route path="/createKids" element={
+          //protected route
+          <RequiredAuth>
+            <Layout><Createkids /></Layout>
+            
+          </RequiredAuth>
+          }/>
+          <Route path="/editkids/:id" element={
+          //protected route
+          <RequiredAuth>
+            <Layout><Editkids /></Layout>
             
           </RequiredAuth>
           }/>

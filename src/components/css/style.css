@@ -352,5 +352,18 @@
         }
     }
  }
+ .searchbar{
+    width: 150px;
+    padding: 5px;
+    input{
+    border-radius: 10px;
+    ;
+    text-align: center;
+    color: aliceblue;
+     border: none;
+     outline: none;
+    }
+ }
+
  
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import ligo from "../../assets/nyarial_logo.png" 
+import SocialLinks from './Medialinks'
 
 const Footer = () => {
   return (
@@ -66,6 +67,7 @@ const Footer = () => {
                     <p>Kwanelou@gmail.com</p>
                     <p>Nargis Fes-63456</p>
                     <p>City-Fes-Maroc</p>
+                    <SocialLinks/>
                     
                 </div>
                  <hr/>

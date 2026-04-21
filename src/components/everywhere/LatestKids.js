@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-const LatestMen = () => {
-  const [mens, setMens] = useState([]);
+const Latestkids = () => {
+  const [kids, setkids] = useState([]);
 
-  const fetchMens = async () => {
+  const fetchLatestkids = async () => {
     try {
       const res = await fetch(
-        'http://127.0.0.1:8000/api/get-mens',
+        'http://127.0.0.1:8000/api/get-latest-kids?limit=2',
         {
           method: 'GET',
         }
@@ -16,7 +16,7 @@ const LatestMen = () => {
       console.log(result);
 
       if (result.status === true) {
-        setMens(result.data);
+        setkids(result.data);
       }
     } catch (error) {
       console.error('Error fetching men services:', error);
@@ -24,7 +24,7 @@ const LatestMen = () => {
   };
 
   useEffect(() => {
-    fetchMens();
+    fetchLatestkids();
   }, []);
 
   return (
@@ -32,7 +32,7 @@ const LatestMen = () => {
       <section className='section3 py-5 mb-3'>
         <div className='container'>
           <div className='section3-header text-center mb-5'>
-            <span>Men Services</span>
+            <span>Kids Services</span>
             <h3>
               At <blockquote>Nyarial Clothing Store</blockquote> we are dedicated
               to giving you more than just clothes
@@ -46,27 +46,31 @@ const LatestMen = () => {
           </div>
 
           <div className='row'>
-            {mens && mens.length > 0 ? (
-              mens.map((men) => {
+            {kids && kids.length > 0 ? (
+              kids.map((kid) => {
                 return (
-                  <div className='col-md-3 mb-4' key={men.id}>
+                  <div className='col-md-6 mb-4' key={kid.id}>
                     <div className='item shadow-sm '>
                       <div className='services-image'>
                         <img
-                          src={`http://127.0.0.1:8000/uploads/Mens/${men.image}`}
-                          alt={men.title}
-                          className='w-100'
+                          src={`http://127.0.0.1:8000/uploads/Kids/${kid.image}`}
+                          alt={kid.title}
+                          className="card-img-top"
+                          style={{
+                          height: "250px",
+                          objectFit: "cover",
+                        }}
                          
                         />
                       </div>
 
                       <div className='services-body p-3'>
                         <div className='services-title'>
-                          <h3 className='mb-2'>{men.title}</h3>
+                          <h3 className='mb-2'>{kid.title}</h3>
                         </div>
 
                         <div className='services-content'>
-                          <p className='text-color-dark'>{men.desc}</p>
+                          <p className='text-color-dark'>{kid.kids_desc}</p>
                         </div>
 
                         <a href='/' className='btn btn-danger'>
@@ -74,14 +78,14 @@ const LatestMen = () => {
                         </a>
                       </div>
                     </div>
-                    <p className='text-center text-danger bg-dark border-2 mt-3'>Price:{men.price}$</p>
+                    <p className='text-center text-danger bg-dark border-2 mt-3'>Price:{kid.price}$</p>
                   </div>
                   
                 );
               })
             ) : (
               <div className='col-12 text-center'>
-                <p>No men services found.</p>
+                <p>No kids services found.</p>
               </div>
             )}
           </div>
@@ -91,4 +95,4 @@ const LatestMen = () => {
   );
 };
 
-export default LatestMen;
+export default Latestkids;

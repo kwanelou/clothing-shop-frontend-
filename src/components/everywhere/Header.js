@@ -1,10 +1,13 @@
 import { Nav, Navbar } from 'react-bootstrap'
 import { NavLink, Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../backened/context/Auth";
 import logo from '../../assets/nyarial_logo.png';
 
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
+
   return (
-    /* this is Navbar which will  be on every component within the project */
     <header>
       <div className='container py-3'>
         <Navbar expand="lg">
@@ -17,8 +20,10 @@ const Header = () => {
           <Navbar.Toggle />
 
           <Navbar.Collapse>
+
             <Nav className="ms-auto">
 
+              {/* PUBLIC LINKS */}
               <Nav.Link as={NavLink} to="/">Home</Nav.Link>
               <Nav.Link as={NavLink} to="/men">Men</Nav.Link>
               <Nav.Link as={NavLink} to="/kid">Kids</Nav.Link>
@@ -27,7 +32,41 @@ const Header = () => {
               <Nav.Link as={NavLink} to="/services">Services</Nav.Link>
               <Nav.Link as={NavLink} to="/contact">Contact</Nav.Link>
 
+              {/* AUTH SECTION */}
+              {!user ? (
+                <>
+                  <Nav.Link as={NavLink} to="/login">
+                    Login
+                  </Nav.Link>
+
+                  
+                </>
+              ) : (
+                <>
+                  {/* DASHBOARD (only admin) */}
+                  {user?.user?.role === "admin" && (
+                    <Nav.Link as={NavLink} to="/showService">
+                      Dashboard
+                    </Nav.Link>
+                  )}
+
+                    <button
+                      onClick={() => {
+                        const confirmLogout = window.confirm("Do you want to logout please?");
+
+                        if (confirmLogout) {
+                          logout();
+                        }
+                      }}
+                      className="btn btn-dark ms-2"
+                    >
+                      Logout
+                    </button>
+                </>
+              )}
+
             </Nav>
+
           </Navbar.Collapse>
 
         </Navbar>
@@ -36,4 +75,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Header;

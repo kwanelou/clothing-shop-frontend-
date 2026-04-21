@@ -1,4 +1,5 @@
-import React from 'react'
+
+
 
 
 
@@ -21,17 +22,37 @@ import test2 from "../../assets/men7.jpg";
 import test4 from "../../assets/women13.jpg";
 import test5 from "../../assets/kid11.jpg";
 import test6 from "../../assets/kid10.jpg";
+import { token } from '../everywhere/http';
+import LatestServices from "../everywhere/latestService";
+import LatestMen from "../everywhere/LatestMen";
+import LatestWomen from "../everywhere/LatestWomen";
+import Latestkids from "../everywhere/LatestKids";
+import { useState } from 'react';
 
 
 
 
 const Home = () => {
+    const [search, setSearch] = useState("");
+    
+   
   return (
    
        <>
       
       
        <main>
+            <div className="container my-4 searchbar">
+            <input
+                type="text"
+                className="form-control"
+                placeholder="Search..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+            />
+            </div>
+
+
         <section className='section1 '>
             <div className='hero d-flex align-items-center'>
                 <div className='container-fluid'>
@@ -48,9 +69,15 @@ const Home = () => {
                 </div>
 
             </div>
+            
 
         </section>
+
         <About/>
+        <LatestServices/>
+        <LatestMen/>
+        <Latestkids/>
+        <LatestWomen/>
      
 
         <section className='section5'>

@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react';
 const LatestMen = () => {
   const [mens, setMens] = useState([]);
 
-  const fetchMens = async () => {
+  const fetchLatestMens = async () => {
     try {
       const res = await fetch(
-        'http://127.0.0.1:8000/api/get-mens',
+        'http://127.0.0.1:8000/api/get-latest-mens?limit=2',
         {
           method: 'GET',
         }
@@ -24,7 +24,7 @@ const LatestMen = () => {
   };
 
   useEffect(() => {
-    fetchMens();
+    fetchLatestMens();
   }, []);
 
   return (
@@ -49,13 +49,17 @@ const LatestMen = () => {
             {mens && mens.length > 0 ? (
               mens.map((men) => {
                 return (
-                  <div className='col-md-3 mb-4' key={men.id}>
+                  <div className='col-md-6 mb-4' key={men.id}>
                     <div className='item shadow-sm '>
                       <div className='services-image'>
                         <img
                           src={`http://127.0.0.1:8000/uploads/Mens/${men.image}`}
                           alt={men.title}
-                          className='w-100'
+                          className="card-img-top"
+                          style={{
+                          height: "250px",
+                          objectFit: "cover",
+                        }}
                          
                         />
                       </div>
