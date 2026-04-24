@@ -31,6 +31,8 @@ const Header = () => {
               <Nav.Link as={NavLink} to="/about">About</Nav.Link>
               <Nav.Link as={NavLink} to="/services">Services</Nav.Link>
               <Nav.Link as={NavLink} to="/contact">Contact</Nav.Link>
+              <Nav.Link as={NavLink} to="/profile">UserProfile</Nav.Link>
+              <Nav.Link as={NavLink} to="/myorder">MyOrders</Nav.Link>
 
               {/* AUTH SECTION */}
               {!user ? (

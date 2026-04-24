@@ -95,7 +95,7 @@ const LatestServices = () => {
 
                     <div className="mt-auto">
                       <Link
-                        to={`/service/${service.id}`}
+                        to={'/services'}
                         className="btn btn-danger"
                       >
                         Read More...

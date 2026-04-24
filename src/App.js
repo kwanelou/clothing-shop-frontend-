@@ -30,6 +30,10 @@ import {default as Showkids} from "./components/backened/kidsPage/Show";
 import {default as Createkids} from "./components/backened/kidsPage/Create";
 import {default as Editkids} from "./components/backened/kidsPage/Edit";
 import Register from "./components/backened/Register";
+import Profile from "./components/frontend/ProfileUser";
+import ShowOrders from "./components/backened/ShowOrders";
+import MyOrders from "./components/backened/Myorders";
+import ForgotPassword from "./components/backened/ForgotPassword";
 
 
 function App() {
@@ -45,7 +49,11 @@ function App() {
         <Route path="/about" element={<Layout><About /></Layout>} />
         <Route path="/services" element={<Layout><Services /></Layout>} />
         <Route path="/contact" element={<Layout><Contact /></Layout>} />
-        <Route path="/login" element={<Layout><Login /></Layout>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Layout><Profile /></Layout>} />
+        <Route path="/myorder" element={<Layout><MyOrders /></Layout>} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        
         <Route path="/register" element={<Layout><Register /></Layout>} />
         <Route path="/dashboard" element={
           //protected route
@@ -134,6 +142,13 @@ function App() {
           //protected route
           <RequiredAuth>
             <Layout><Editkids /></Layout>
+            
+          </RequiredAuth>
+          }/>
+          <Route path="/showorders" element={
+          //protected route
+          <RequiredAuth>
+            <Layout><ShowOrders /></Layout>
             
           </RequiredAuth>
           }/>

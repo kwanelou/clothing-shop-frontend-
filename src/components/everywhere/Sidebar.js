@@ -16,6 +16,7 @@ const Sidebar = () => {
           <li><Link to='/showkids'>Kids</Link></li>
           <li><Link to='/womenpage'>Women</Link></li>
           <li><Link to='/showService'>Services</Link></li>
+          <li><Link to='/showorders'>Orders</Link></li>
 
           <li>
                 <button

@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { token } from "../../everywhere/http";
 import { toast } from "react-toastify";
 
-
 const Edit = () => {
   const navigate = useNavigate();
   const params = useParams();
@@ -49,7 +48,12 @@ const Edit = () => {
         setValue("content", service.content);
         setValue("short_desc", service.short_desc);
 
-        setPreviewImage(`http://127.0.0.1:8000/uploads/services/${service.image}`);
+        // ✅ PRICE ADDED
+        setValue("price", service.price);
+
+        setPreviewImage(
+          `http://127.0.0.1:8000/uploads/services/${service.image}`
+        );
       } else {
         toast.error(result.message || "Service not found");
       }
@@ -70,6 +74,10 @@ const Edit = () => {
       formData.append("status", data.status || 1);
       formData.append("content", data.content || "");
       formData.append("short_desc", data.short_desc || "");
+
+      // ✅ PRICE ADDED
+      formData.append("price", data.price || 0);
+
       formData.append("_method", "PUT");
 
       const file = data?.image?.[0];
@@ -81,7 +89,7 @@ const Edit = () => {
       const response = await fetch(
         `http://127.0.0.1:8000/api/services/${params.id}`,
         {
-          method: "Put",
+          method: "PUT",
           headers: {
             Accept: "application/json",
             Authorization: `Bearer ${token()}`,
@@ -110,8 +118,6 @@ const Edit = () => {
 
   return (
     <main>
-      
-
       <div className="container my-5">
         <div className="row g-4">
           <div className="col-md-3">
@@ -139,6 +145,7 @@ const Edit = () => {
                 <hr />
 
                 <form onSubmit={handleSubmit(onSubmit)}>
+                  {/* IMAGE */}
                   <div className="mb-3">
                     <label className="form-label">Current Image</label>
 
@@ -148,71 +155,54 @@ const Edit = () => {
                           src={previewImage}
                           alt="Service"
                           className="img-thumbnail"
-                          style={{ width: "120px", height: "120px", objectFit: "cover" }}
+                          style={{
+                            width: "120px",
+                            height: "120px",
+                            objectFit: "cover",
+                          }}
                         />
                       </div>
                     )}
 
                     <input
                       type="file"
-                      className={`form-control ${errors.image ? "is-invalid" : ""}`}
+                      className={`form-control ${
+                        errors.image ? "is-invalid" : ""
+                      }`}
                       {...register("image")}
                     />
-
-                    {errors.image && (
-                      <div className="invalid-feedback">
-                        {errors.image.message}
-                      </div>
-                    )}
                   </div>
 
+                  {/* TITLE */}
                   <div className="mb-3">
                     <label className="form-label">Title</label>
                     <input
                       type="text"
-                      className={`form-control ${errors.title ? "is-invalid" : ""}`}
-                      {...register("title", {
-                        required: "Title is required",
-                      })}
+                      className="form-control"
+                      {...register("title", { required: true })}
                     />
-
-                    {errors.title && (
-                      <div className="invalid-feedback">
-                        {errors.title.message}
-                      </div>
-                    )}
                   </div>
 
+                  {/* SLUG */}
                   <div className="mb-3">
                     <label className="form-label">Slug</label>
                     <input
                       type="text"
-                      className={`form-control ${errors.slug ? "is-invalid" : ""}`}
-                      {...register("slug", {
-                        required: "Slug is required",
-                      })}
+                      className="form-control"
+                      {...register("slug", { required: true })}
                     />
-
-                    {errors.slug && (
-                      <div className="invalid-feedback">
-                        {errors.slug.message}
-                      </div>
-                    )}
                   </div>
 
+                  {/* STATUS */}
                   <div className="mb-3">
                     <label className="form-label">Status</label>
-                    <select
-                      className={`form-select ${errors.status ? "is-invalid" : ""}`}
-                      {...register("status", {
-                        required: "Status is required",
-                      })}
-                    >
+                    <select className="form-select" {...register("status")}>
                       <option value="1">Active</option>
                       <option value="0">Inactive</option>
                     </select>
                   </div>
 
+                  {/* CONTENT */}
                   <div className="mb-3">
                     <label className="form-label">Content</label>
                     <input
@@ -222,21 +212,24 @@ const Edit = () => {
                     />
                   </div>
 
+                  {/* SHORT DESC */}
                   <div className="mb-3">
                     <label className="form-label">Short Description</label>
                     <textarea
-                      rows="3"
-                      className={`form-control ${errors.short_desc ? "is-invalid" : ""}`}
-                      {...register("short_desc", {
-                        required: "Short description is required",
-                      })}
+                      className="form-control"
+                      {...register("short_desc")}
                     ></textarea>
+                  </div>
 
-                    {errors.short_desc && (
-                      <div className="invalid-feedback">
-                        {errors.short_desc.message}
-                      </div>
-                    )}
+                  {/* ✅ PRICE ADDED HERE */}
+                  <div className="mb-3">
+                    <label className="form-label">Price</label>
+                    <input
+                      type="number"
+                      step="0.01"
+                      className="form-control"
+                      {...register("price", { required: true })}
+                    />
                   </div>
 
                   <div className="d-grid">

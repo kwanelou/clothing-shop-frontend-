@@ -27,6 +27,7 @@ const Create = () => {
       formData.append("status", data.status || 1);
       formData.append("content", data.content || "");
       formData.append("short_desc", data.short_desc || "");
+      formData.append("price", data.price || 0);
 
       const file = data?.image?.[0];
 
@@ -122,6 +123,17 @@ const Create = () => {
                       </div>
                     )}
                   </div>
+                  <div className="mb-3">
+            <label className="form-label">Price</label>
+            <input
+              type="number"
+              step="0.01"
+              className="form-control"
+              {...register("price", {
+                required: "Price is required",
+              })}
+            />
+          </div>
 
                   <div className="mb-3">
                     <label className="form-label">Slug</label>

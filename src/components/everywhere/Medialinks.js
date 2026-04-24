@@ -16,7 +16,7 @@ const SocialLinks = () => {
         <FaTwitter />
       </a>
 
-      <a href="https://wa.me/212600000000" target="_blank" rel="noreferrer">
+      <a href="https://wa.me/212691829936" target="_blank" rel="noreferrer">
         <FaWhatsapp />
       </a>
 

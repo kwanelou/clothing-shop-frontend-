@@ -6,7 +6,7 @@ const LatestMen = () => {
   const fetchLatestMens = async () => {
     try {
       const res = await fetch(
-        'http://127.0.0.1:8000/api/get-latest-mens?limit=2',
+        'http://127.0.0.1:8000/api/get-latest-mens?limit=4',
         {
           method: 'GET',
         }
@@ -73,7 +73,7 @@ const LatestMen = () => {
                           <p className='text-color-dark'>{men.desc}</p>
                         </div>
 
-                        <a href='/' className='btn btn-danger'>
+                        <a href='/services' className='btn btn-danger'>
                           Read More...
                         </a>
                       </div>
