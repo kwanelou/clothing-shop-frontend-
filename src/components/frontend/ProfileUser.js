@@ -13,7 +13,7 @@ const Profile = () => {
   return (
     <div className="container py-5">
       <div className="card shadow border-0 rounded-4 p-4 mx-auto" style={{ maxWidth: "800px" }}>
-        <div className="text-center mb-4">
+        <div className="text-center mb-4 bg-danger">
           <img
             src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
             alt="Profile"
@@ -26,10 +26,10 @@ const Profile = () => {
           />
 
           <h2 className="mt-3">{user?.user?.name}</h2>
-          <p className="text-muted">{user?.user?.email}</p>
+          <p className="text-muted text-color-white">{user?.user?.email}</p>
         </div>
 
-        <div className="row">
+        <div className="row bg-dark">
           <div className="col-md-6 mb-3">
             <label className="fw-bold mb-1">Name</label>
             <div className="form-control bg-light">

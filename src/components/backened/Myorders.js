@@ -27,10 +27,10 @@ const MyOrders = () => {
   };
 
   return (
-    <div className="container py-4">
+    <div className="container py-4 ">
       <div className="card shadow border-0">
         <div className="card-body">
-          <h2 className="mb-4">My Orders</h2>
+          <h2 className="mb-4 text-center">My Orders</h2>
 
           <div className="table-responsive">
             <table className="table table-bordered table-striped align-middle">

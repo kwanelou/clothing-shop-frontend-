@@ -11,7 +11,7 @@ const Dashboard = () => {
     return <Navigate to="/login" />;
   }
 
-  // Optional: block non-admin users
+  // block non-admin users
   if (user?.user?.role !== "admin") {
     return <Navigate to="/" />;
   }

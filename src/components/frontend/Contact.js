@@ -71,17 +71,17 @@ const Contact = () => {
           </div>
 
           {/* FORM */}
-          <div className="col-md-9">
-            <div className="card shadow border-3 p-5 bg-dark">
+          <div className="col-md-9 ">
+            <div className="card shadow border-3 p-5 bg-dark sm ">
 
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form onSubmit={handleSubmit(onSubmit)} >
 
                 {/* NAME */}
                 <div className="mb-3">
                   <label className="form-label">Name</label>
                   <input
                     type="text"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-sm"
                     placeholder="Enter your name"
                     {...register("name", { required: "Name is required" })}
                   />
@@ -97,7 +97,7 @@ const Contact = () => {
                   <label className="form-label">Email</label>
                   <input
                     type="email"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-sm"
                     placeholder="Enter your email"
                     {...register("email", {
                       required: "Email is required",
@@ -119,7 +119,7 @@ const Contact = () => {
                   <label className="form-label">Phone</label>
                   <input
                     type="text"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-sm"
                     placeholder="Enter your phone number"
                     {...register("phone", {
                       required: "Phone is required",
@@ -141,7 +141,7 @@ const Contact = () => {
                   <label className="form-label">Subject</label>
                   <input
                     type="text"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-sm"
                     placeholder="Your subject here"
                     {...register("subject", {
                       required: "Subject is required",
@@ -159,7 +159,7 @@ const Contact = () => {
                   <label className="form-label">Message</label>
                   <textarea
                     rows={4}
-                    className="form-control form-control-lg"
+                    className="form-control form-control-sm"
                     placeholder="Type your message here"
                     {...register("message", {
                       required: "Message is required",

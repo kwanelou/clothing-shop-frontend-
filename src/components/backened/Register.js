@@ -56,7 +56,7 @@ const Register = () => {
   };
 
   return (
-    <main>
+    <main className="bg-primary"> 
       <div className="container my-5 d-flex justify-content-center">
         <div className="register-form my-5" style={{ width: "450px" }}>
           <div className="card border-0 shadow">

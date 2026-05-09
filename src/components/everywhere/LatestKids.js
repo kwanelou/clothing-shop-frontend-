@@ -32,16 +32,14 @@ const Latestkids = () => {
       <section className='section3 py-5 mb-3'>
         <div className='container'>
           <div className='section3-header text-center mb-5'>
-            <span>Kids Services</span>
+            <span>Latest Kids Services</span>
             <h3>
-              At <blockquote>Nyarial Clothing Store</blockquote> we are dedicated
-              to giving you more than just clothes
+              our kids Premium Shopping Services Designed for Your Convenience
             </h3>
             <p>
-              We deliver style, comfort, and confidence. Our services are
-              designed to make your shopping experience easy,
-              <br />
-              enjoyable, and personalized.
+             We provide a range of premium services to enhance your shopping experience and ensure maximum customer satisfaction. <br/>
+            From fast and reliable express delivery to personalized styling consultations, our goal is to make online shopping 
+          <br/>simple, enjoyable, and tailored to your needs.
             </p>
           </div>
 
@@ -70,7 +68,7 @@ const Latestkids = () => {
                         </div>
 
                         <div className='services-content'>
-                          <p className='text-color-dark'>{kid.kids_desc}</p>
+                          <p className='text-color-dark bg-secondary'>{kid.kids_desc}</p>
                         </div>
 
                         <a href='/services' className='btn btn-danger'>

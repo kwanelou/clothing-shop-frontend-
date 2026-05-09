@@ -32,16 +32,13 @@ const LatestWomen = () => {
       <section className='section3 py-5 mb-3'>
         <div className='container'>
           <div className='section3-header text-center mb-5'>
-            <span>Women Services</span>
+            <span>Women clothing  Services</span>
             <h3>
-              At <blockquote>Nyarial Clothing Store</blockquote> we are dedicated
-              to giving you more than just clothes
+              At our Store, Fast Delivery & Secure Handling
             </h3>
             <p>
-              We deliver style, comfort, and confidence. Our services are
-              designed to make your shopping experience easy,
-              <br />
-              enjoyable, and personalized.
+             Our express delivery service ensures your orders arrive quickly and safely, with priority processing and secure packaging. <br/>
+Whether you need your items urgently or want guaranteed shipping reliability, we’ve got you covered.
             </p>
           </div>
 
@@ -70,7 +67,7 @@ const LatestWomen = () => {
                         </div>
 
                         <div className='services-content'>
-                          <p className='text-color-dark'>{women.description}</p>
+                          <p className='text-color-dark bg-secondary'>{women.description}</p>
                         </div>
 
                         <a href='/services' className='btn btn-danger'>

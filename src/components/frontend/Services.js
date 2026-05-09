@@ -32,13 +32,13 @@ const Services = () => {
 
       const userInfo = JSON.parse(localStorage.getItem("userinfo"));
 
-      // ✅ CHECK LOGIN
+      // CHECK LOGIN
       if (!userInfo || !userInfo.token) {
         alert("Please login first");
         return;
       }
 
-      // ✅ FIXED TOKEN (ONLY ONE SOURCE)
+      // token
       const token = userInfo.token;
 
       console.log("TOKEN:", token); // debug
@@ -122,12 +122,7 @@ const Services = () => {
 
                     <div className="mt-auto d-flex gap-2">
 
-                      <Link
-                        to={`/service/${service.id}`}
-                        className="btn btn-outline-dark w-50"
-                      >
-                        View Details
-                      </Link>
+                      
 
                       <button
                         className="btn btn-dark w-50"

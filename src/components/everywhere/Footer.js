@@ -71,7 +71,7 @@ const Footer = () => {
                     
                 </div>
                  <hr/>
-                 <div className='text-center right'> 
+                 <div className='text-center right text-white'> 
                     Copyright @2026 nyarial cothing shop.all right reserved
 
                  </div>

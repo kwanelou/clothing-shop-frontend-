@@ -32,16 +32,13 @@ const LatestMen = () => {
       <section className='section3 py-5 mb-3'>
         <div className='container'>
           <div className='section3-header text-center mb-5'>
-            <span>Men Services</span>
+            <span> Latest Best Men clothing Services</span>
             <h3>
-              At <blockquote>Nyarial Clothing Store</blockquote> we are dedicated
-              to giving you more than just clothes
+              welcome to our men Customization & Personal Assistance site
             </h3>
             <p>
-              We deliver style, comfort, and confidence. Our services are
-              designed to make your shopping experience easy,
-              <br />
-              enjoyable, and personalized.
+              Enjoy tailored services such as clothing adjustments, gift wrapping, and personal styling recommendations. <br/>
+              We help you personalize your purchases to match your preferences and special occasions.
             </p>
           </div>
 
@@ -70,7 +67,7 @@ const LatestMen = () => {
                         </div>
 
                         <div className='services-content'>
-                          <p className='text-color-dark'>{men.desc}</p>
+                          <p className='text-color-dark bg-secondary'>{men.desc}</p>
                         </div>
 
                         <a href='/services' className='btn btn-danger'>

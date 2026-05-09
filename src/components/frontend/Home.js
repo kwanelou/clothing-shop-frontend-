@@ -33,7 +33,7 @@ import { useState } from 'react';
 
 
 const Home = () => {
-    const [search, setSearch] = useState("");
+   
     
    
   return (
@@ -42,22 +42,14 @@ const Home = () => {
       
       
        <main>
-            <div className="container my-4 searchbar">
-            <input
-                type="text"
-                className="form-control"
-                placeholder="Search..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-            />
-            </div>
+          
 
 
         <section className='section1 '>
             <div className='hero d-flex align-items-center'>
                 <div className='container-fluid'>
                     <div className='text-center'>
-                        <span>Welcome to nyarial clothing store</span>
+                        <span className='text-warning bg-dark'>Welcome to nyarial clothing store</span>
                         <h1>we believe everyone deserves to look great</h1>
                         <h2>discover stylish, comfortable clothes at <br/>affordable prices with fast delivery</h2>
                         <p>make a choice for your beauty outfit</p>
@@ -74,10 +66,10 @@ const Home = () => {
         </section>
 
         <About/>
-        <LatestServices/>
-        <LatestMen/>
-        <Latestkids/>
-        <LatestWomen/>
+        <LatestServices />
+        <LatestMen />
+        <Latestkids />
+        <LatestWomen />
      
 
         <section className='section5'>
@@ -92,9 +84,7 @@ const Home = () => {
                 <div className='row' py-4>
                     <div className='col-md-4'>
                         <div className='card shadow border-0 ms-3'>
-                            <div>
-                                <i class="bi bi-person-standing-dress"></i>
-                            </div>
+                           
 
                             
                         </div>

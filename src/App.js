@@ -11,6 +11,7 @@ import Contact from "./components/frontend/Contact";
 import Layout from "./components/everywhere/Layout";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import "./components/css/style.css";
 import Login from "./components/backened/Login";
 import Dashboard from "./components/backened/Dashboard";
@@ -34,6 +35,10 @@ import Profile from "./components/frontend/ProfileUser";
 import ShowOrders from "./components/backened/ShowOrders";
 import MyOrders from "./components/backened/Myorders";
 import ForgotPassword from "./components/backened/ForgotPassword";
+import Cart from "./components/everywhere/Usercart";
+import AdminOrders from "./components/backened/AdminOrders";
+import Checkout from "./components/everywhere/Checkout";
+
 
 
 function App() {
@@ -52,7 +57,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Layout><Profile /></Layout>} />
         <Route path="/myorder" element={<Layout><MyOrders /></Layout>} />
+        <Route path="/cart" element={<Layout><Cart /></Layout>} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/checkout" element={<Checkout />} />
         
         <Route path="/register" element={<Layout><Register /></Layout>} />
         <Route path="/dashboard" element={
@@ -149,6 +156,13 @@ function App() {
           //protected route
           <RequiredAuth>
             <Layout><ShowOrders /></Layout>
+            
+          </RequiredAuth>
+          }/>
+          <Route path="/adminorders" element={
+          //protected route
+          <RequiredAuth>
+            <Layout><AdminOrders /></Layout>
             
           </RequiredAuth>
           }/>

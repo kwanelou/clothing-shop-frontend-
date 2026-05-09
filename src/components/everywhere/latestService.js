@@ -7,6 +7,8 @@ import men4 from "../../assets/men9.jpg";
 
 const LatestServices = () => {
   const [services, setServices] = useState([]);
+  const [filteredServices, setFilteredServices] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const defaultImages = [men1, men2, men3, men4];
 
@@ -22,18 +24,31 @@ const LatestServices = () => {
 
       const data = await response.json();
 
-      console.log("Latest Services:", data);
-
       if (Array.isArray(data)) {
         setServices(data);
+        setFilteredServices(data);
       } else if (data.status === true && Array.isArray(data.data)) {
         setServices(data.data);
+        setFilteredServices(data.data);
       } else {
         setServices([]);
+        setFilteredServices([]);
       }
     } catch (error) {
       console.log("Error fetching latest services:", error);
     }
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    const filtered = services.filter((service) =>
+      service.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (service.short_desc &&
+        service.short_desc.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+
+    setFilteredServices(filtered);
   };
 
   return (
@@ -43,7 +58,7 @@ const LatestServices = () => {
           <span>Our Latest Services</span>
 
           <h3 className="mt-3">
-            At <blockquote>Nyarial Clothing Store</blockquote> we are dedicated
+            At Nyarial Clothing Store, we are dedicated
             to giving you more than just clothes
           </h3>
 
@@ -53,11 +68,29 @@ const LatestServices = () => {
             <br />
             enjoyable, and personalized.
           </p>
+
+          {/* SEARCH BAR */}
+          <form
+            onSubmit={handleSearch}
+            className="service-search-form mt-4"
+          >
+            <input
+              type="text"
+              placeholder="Search services..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="service-search-input"
+            />
+
+            <button type="submit" className="service-search-btn">
+              Search
+            </button>
+          </form>
         </div>
 
         <div className="row">
-          {services.length > 0 ? (
-            services.map((service, index) => (
+          {filteredServices.length > 0 ? (
+            filteredServices.map((service, index) => (
               <div className="col-md-3 mb-4" key={service.id}>
                 <div className="card h-100 shadow border-0">
                   <div className="services-image">
@@ -94,10 +127,7 @@ const LatestServices = () => {
                     </p>
 
                     <div className="mt-auto">
-                      <Link
-                        to={'/services'}
-                        className="btn btn-danger"
-                      >
+                      <Link to="/services" className="btn btn-danger">
                         Read More...
                       </Link>
                     </div>
@@ -107,7 +137,7 @@ const LatestServices = () => {
             ))
           ) : (
             <div className="col-12 text-center">
-              <h5>No latest services found</h5>
+              <h5>No matching services found</h5>
             </div>
           )}
         </div>
